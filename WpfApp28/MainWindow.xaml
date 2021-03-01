@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp28.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp28"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.DataContext>
+            <local:MainVM />
+        </Grid.DataContext>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding PageCaption}" HorizontalAlignment="Center" FontSize="20" />
+        <Frame NavigationUIVisibility="Hidden" Grid.Row="1" Content="{Binding CurrentPage}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <Button Content="Назад" Command="{Binding BackPage}"/>
+            <Button Content="Вперед" Command="{Binding ForwardPage}"/>
+        </StackPanel>
+    </Grid>
+</Window>
